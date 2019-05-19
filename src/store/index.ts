@@ -3,6 +3,7 @@ import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
+import teamsSaga from './sagas/teams'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -20,3 +21,5 @@ const store = createStore(rootReducer, enhancers)
 export interface Store {}
 
 export default store
+
+sagaMiddleware.run(teamsSaga)

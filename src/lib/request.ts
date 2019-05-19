@@ -10,7 +10,7 @@ interface Props {
   }
 }
 
-const SERVER_URL = 'https://jsonplaceholder.typicode.com'
+const SERVER_URL = 'https://www.balldontlie.io/api/v1'
 
 export default async ({
   path,

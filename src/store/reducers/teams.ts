@@ -1,26 +1,36 @@
 import { createReducer } from '../../lib/utils'
-//import ActionTypes, { IAppStartFailure } from '../actions/app/types'
+import * as ActionTypes from '../actions/teams/constants'
+import { IFetchTeamsSuccess, IFetchTeamsFailure } from '../actions/teams'
+import { Team } from '../models/Team'
 
-interface TeamsState {
+interface ITeamsState {
   loading: boolean
   error: string
+  data: Team[]
 }
 
-const initialState: TeamsState = {
+const initialState: ITeamsState = {
   loading: false,
-  error: ''
+  error: '',
+  data: []
 }
 
 const teamsReducer = createReducer(initialState, {
-  // [ActionTypes.APP_START](state: IState) {
-  //   return { ...state, loading: true }
-  // },
-  // [ActionTypes.APP_START_SUCCESS](state: IState) {
-  //   return { ...state, loading: false, error: '' }
-  // },
-  // [ActionTypes.APP_START_FAILURE](state: IState, action: IAppStartFailure) {
-  //   return { ...state, loading: false, error: action.error }
-  // }
+  [ActionTypes.FETCH_TEAMS](state: ITeamsState) {
+    return { ...state, loading: true }
+  },
+  [ActionTypes.FETCH_TEAMS_SUCCESS](
+    state: ITeamsState,
+    action: IFetchTeamsSuccess
+  ) {
+    return { ...state, data: action.payload, loading: false, error: '' }
+  },
+  [ActionTypes.FETCH_TEAMS_FAILURE](
+    state: ITeamsState,
+    action: IFetchTeamsFailure
+  ) {
+    return { ...state, loading: false, error: action.error }
+  }
 })
 
 export default teamsReducer
