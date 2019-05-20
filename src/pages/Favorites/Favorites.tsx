@@ -27,6 +27,17 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
       team.city.toLowerCase().includes(filter)
   )
 
+  const renderTeam = (team: Team) => (
+    <TableRow key={team.name}>
+      <TableCell>
+        <Text>{team.name}</Text>
+      </TableCell>
+      <TableCell>
+        <Text>{team.city}</Text>
+      </TableCell>
+    </TableRow>
+  )
+
   return (
     <Box fill align="start" justify="start" pad="large">
       <FormField validate={{ regexp: /^[a-z]/i }} required>
@@ -44,18 +55,7 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
             <TableCell>City</TableCell>
           </TableRow>
         </TableHeader>
-        <TableBody>
-          {filteredFavorites.map((team) => (
-            <TableRow key={team.name}>
-              <TableCell>
-                <Text>{team.name}</Text>
-              </TableCell>
-              <TableCell>
-                <Text>{team.city}</Text>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <TableBody>{filteredFavorites.map(renderTeam)}</TableBody>
       </Table>
     </Box>
   )
