@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Dispatch, bindActionCreators } from 'redux'
 import { Home } from './Home'
-import { fetchTeams } from '../../store/actions/teams'
+import { fetchTeams, setFavorite } from '../../store/actions/teams'
 
 const mapStateToProps = (state: any) => ({
   loading: state.teams.loading,
@@ -10,7 +10,7 @@ const mapStateToProps = (state: any) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({ fetchTeams }, dispatch)
+  bindActionCreators({ fetchTeams, setFavorite }, dispatch)
 
 export default connect(
   mapStateToProps,

@@ -7,7 +7,9 @@ interface IDataTableProps {
   renderRow: (rowData: any) => React.ReactNode
 }
 
-export const DataTable: React.FunctionComponent<IDataTableProps> = (props) => {
+export const DataTable: React.FunctionComponent<IDataTableProps> = (
+  props
+): React.ReactElement => {
   const { data, headers, renderRow } = props
 
   return (

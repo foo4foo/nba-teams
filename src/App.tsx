@@ -1,22 +1,27 @@
 import React from 'react'
-import { Grommet, Paragraph } from 'grommet'
-import { dark } from 'grommet/themes'
+import { Grommet } from 'grommet'
+import { grommet } from 'grommet/themes'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import store from './store'
+import Home from './pages/Home'
+import Favorites from './pages/Favorites'
 
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Grommet full theme={dark}>
+        <Grommet full theme={grommet}>
           <Router>
-            <Layout>
-              <Paragraph>
-                Edit <code>src/App.tsx</code> and save to reload.
-              </Paragraph>
-            </Layout>
+            <Layout
+              renderRoutes={() => (
+                <React.Fragment>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/favorites" component={Favorites} />
+                </React.Fragment>
+              )}
+            />
           </Router>
         </Grommet>
       </Provider>

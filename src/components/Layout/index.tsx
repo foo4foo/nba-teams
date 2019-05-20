@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { Grid, Box } from 'grommet'
-import { Route } from 'react-router-dom'
 import { Sidebar } from '../Sidebar'
 import { Header } from '../Header'
-import Home from '../../pages/Home'
-import Favorites from '../../pages/Favorites'
 
-export const Layout: React.FunctionComponent = (
-  props: any
-): React.ReactElement => {
+interface ILayout {
+  renderRoutes: () => React.ReactNode
+}
+
+export const Layout: React.FunctionComponent<ILayout> = ({
+  renderRoutes
+}): React.ReactElement => {
   const [sidebar, setSidebar] = useState(true)
 
   const toggleSidebar = (): void => {
@@ -30,13 +31,13 @@ export const Layout: React.FunctionComponent = (
       {sidebar && <Sidebar />}
       <Box
         gridArea="main"
+        overflow="auto"
         pad={{
           horizontal: '20px',
           vertical: '15px'
         }}
       >
-        <Route path="/" exact component={Home} />
-        <Route path="/favorites" component={Favorites} />
+        {renderRoutes()}
       </Box>
     </Grid>
   )

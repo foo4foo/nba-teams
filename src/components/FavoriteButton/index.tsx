@@ -9,10 +9,10 @@ interface IFavoriteProps {
 const FavoriteButton: React.FunctionComponent<IFavoriteProps> = ({
   isFavorite,
   onClick
-}) => {
+}): React.ReactElement => {
   return (
     <Favorite
-      color={isFavorite ? '#F8F8F8' : '#333333'}
+      color={isFavorite ? 'status-critical' : 'dark-1'}
       style={{ cursor: 'pointer' }}
       onClick={onClick}
     />

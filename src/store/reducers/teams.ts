@@ -1,9 +1,13 @@
 import { createReducer } from '../../lib/utils'
 import * as ActionTypes from '../actions/teams/constants'
-import { IFetchTeamsSuccess, IFetchTeamsFailure } from '../actions/teams'
+import {
+  IFetchTeamsSuccess,
+  IFetchTeamsFailure,
+  ISetFavorite
+} from '../actions/teams'
 import { Team } from '../models/Team'
 
-interface ITeamsState {
+export interface ITeamsState {
   loading: boolean
   error: string
   data: Team[]
@@ -16,6 +20,18 @@ const initialState: ITeamsState = {
 }
 
 const teamsReducer = createReducer(initialState, {
+  [ActionTypes.SET_FAVORITE](state: ITeamsState, action: ISetFavorite) {
+    return {
+      ...state,
+      data: state.data.map((team: Team) => {
+        if (team.id === action.payload.id) {
+          team.isFavorite = !team.isFavorite
+        }
+
+        return team
+      })
+    }
+  },
   [ActionTypes.FETCH_TEAMS](state: ITeamsState) {
     return { ...state, loading: true }
   },

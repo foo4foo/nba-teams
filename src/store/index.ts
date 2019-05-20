@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 import teamsSaga from './sagas/teams'
+import { ITeamsState } from './reducers/teams'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -18,7 +19,9 @@ const enhancers = compose(applyMiddleware(...middlewares))
 
 const store = createStore(rootReducer, enhancers)
 
-export interface Store {}
+export interface IStore {
+  teams: ITeamsState
+}
 
 export default store
 

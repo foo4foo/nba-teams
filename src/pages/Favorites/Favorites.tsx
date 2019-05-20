@@ -1,10 +1,62 @@
-import React from 'react'
-import { Box, Paragraph } from 'grommet'
+import React, { useState } from 'react'
+import {
+  Box,
+  Table,
+  TableHeader,
+  TableRow,
+  TableBody,
+  TableCell,
+  Text,
+  FormField,
+  TextInput
+} from 'grommet'
+import { Team } from '../../store/models/Team'
 
-export const Favorites = (props: any) => {
+interface IFavoritesProps {
+  favorites: Team[]
+}
+
+export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
+  favorites
+}): React.ReactElement => {
+  const [filter, setFilter] = useState('')
+
+  const filteredFavorites = favorites.filter(
+    (team) =>
+      team.name.toLowerCase().includes(filter) ||
+      team.city.toLowerCase().includes(filter)
+  )
+
   return (
-    <Box>
-      <Paragraph>Favorites page</Paragraph>
+    <Box fill align="start" justify="start" pad="large">
+      <FormField validate={{ regexp: /^[a-z]/i }} required>
+        <TextInput
+          id="text-input"
+          placeholder="Name"
+          value={filter}
+          onChange={({ target: { value } }) => setFilter(value)}
+        />
+      </FormField>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>City</TableCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {filteredFavorites.map((team) => (
+            <TableRow key={team.name}>
+              <TableCell>
+                <Text>{team.name}</Text>
+              </TableCell>
+              <TableCell>
+                <Text>{team.city}</Text>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Box>
   )
 }

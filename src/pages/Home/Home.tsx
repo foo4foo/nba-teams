@@ -4,26 +4,31 @@ import { DataTable } from '../../components/DataTable'
 import { FavoriteButton } from '../../components/FavoriteButton'
 import { Team, ITeam } from '../../store/models/Team'
 
-interface IHome {
-  teams: any[]
+interface IHomeProps {
+  teams: Team[]
   loading: boolean
   error: string
   fetchTeams: () => void
+  setFavorite: (team: ITeam) => void
 }
 
-export const Home = (props: IHome) => {
-  const { teams, loading, fetchTeams } = props
+export const Home: React.FunctionComponent<IHomeProps> = (
+  props
+): React.ReactElement => {
+  const { teams, loading, fetchTeams, setFavorite } = props
 
   useEffect(() => {
-    fetchTeams()
+    if (!teams.length) {
+      fetchTeams()
+    }
   }, [])
 
-  const renderTeamRow = (team: ITeam) => (
+  const renderTeamRow = (team: ITeam): React.ReactNode => (
     <TableRow key={team.name}>
       <TableCell>
         <FavoriteButton
           isFavorite={team.isFavorite}
-          onClick={() => alert('ba')}
+          onClick={() => setFavorite(team)}
         />
       </TableCell>
       <TableCell>
