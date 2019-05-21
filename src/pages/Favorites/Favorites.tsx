@@ -27,7 +27,7 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
       team.city.toLowerCase().includes(filter)
   )
 
-  const renderTeam = (team: Team) => (
+  const renderTeam = (team: Team): React.ReactNode => (
     <TableRow key={team.name}>
       <TableCell>
         <Text>{team.name}</Text>

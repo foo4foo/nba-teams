@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTable renders successfuly 1`] = `
+<div
+  className="StyledBox-sc-13pk1d4-0 mNTkb"
+>
+  <a
+    aria-current="page"
+    className="active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <button
+      className="StyledButton-sc-323bzc-0 jfbKsv"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 hcMawI"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 eTqRlr"
+        >
+          Home
+        </span>
+      </div>
+    </button>
+  </a>
+  <a
+    aria-current={null}
+    href="/favorites"
+    onClick={[Function]}
+  >
+    <button
+      className="StyledButton-sc-323bzc-0 jfbKsv"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 hcMawI"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 eTqRlr"
+        >
+          Favorites
+        </span>
+      </div>
+    </button>
+  </a>
+</div>
+`;

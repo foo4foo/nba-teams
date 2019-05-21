@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTable renders successfuly 1`] = `
+<table
+  className="StyledTable-sc-1m3u5g-6 fGUmP"
+>
+  <thead
+    className="StyledTable__StyledTableHeader-sc-1m3u5g-4 dHaGyd"
+  >
+    <tr
+      className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX"
+    >
+      <th
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 hNAgVv"
+        scope="col"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eoKPJA"
+        >
+          1
+        </div>
+      </th>
+      <th
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 hNAgVv"
+        scope="col"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eoKPJA"
+        >
+          2
+        </div>
+      </th>
+      <th
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 hNAgVv"
+        scope="col"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eoKPJA"
+        >
+          3
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className="StyledTable__StyledTableBody-sc-1m3u5g-3 dwInxx"
+  >
+    <tr
+      className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX"
+    >
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          1
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          1
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          1
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX"
+    >
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          2
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          2
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          2
+        </div>
+      </td>
+    </tr>
+    <tr
+      className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX"
+    >
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          3
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          3
+        </div>
+      </td>
+      <td
+        className="StyledTable__StyledTableCell-sc-1m3u5g-0 ezepRo"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 eAAZJM"
+        >
+          3
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

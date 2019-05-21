@@ -5,7 +5,7 @@ import { IFetchTeams } from '../actions/teams'
 import * as api from '../data/teams'
 import { ITeam, Team } from '../models/Team'
 
-function* fetchTeams(action: IFetchTeams) {
+export function* fetchTeams(action: IFetchTeams) {
   try {
     const response = yield call(api.fetchTeams)
 

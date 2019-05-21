@@ -45,7 +45,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-test-renderer": "^16.8.1",
     "@types/redux-logger": "3.0.7",
+    "react-test-renderer": "16.8.6",
     "redux-devtools-extension": "2.13.8",
     "redux-logger": "3.0.6"
   }
