@@ -13,7 +13,7 @@ export interface ITeamsState {
   data: Team[]
 }
 
-const initialState: ITeamsState = {
+export const initialState: ITeamsState = {
   loading: false,
   error: '',
   data: []

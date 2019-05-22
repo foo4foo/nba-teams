@@ -10,7 +10,8 @@ interface Props {
   }
 }
 
-const SERVER_URL = 'https://www.balldontlie.io/api/v1'
+// .env file is not included in .gitignore on purpose
+const SERVER_URL = process.env.REACT_APP_API_URL
 
 export default async ({
   path,

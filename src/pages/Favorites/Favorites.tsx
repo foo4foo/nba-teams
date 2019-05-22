@@ -10,6 +10,7 @@ import {
   FormField,
   TextInput
 } from 'grommet'
+import debounce from 'lodash/debounce'
 import { Team } from '../../store/models/Team'
 
 interface IFavoritesProps {
@@ -20,12 +21,19 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
   favorites
 }): React.ReactElement => {
   const [filter, setFilter] = useState('')
+  const [filteredFavorites, setFilteredFavorites] = useState([...favorites])
 
-  const filteredFavorites = favorites.filter(
-    (team) =>
-      team.name.toLowerCase().includes(filter) ||
-      team.city.toLowerCase().includes(filter)
-  )
+  const filterTeams = (): ((pattern: string) => void) => {
+    return debounce((pattern: string) => {
+      setFilteredFavorites(
+        favorites.filter(
+          (team) =>
+            team.name.toLowerCase().includes(pattern) ||
+            team.city.toLowerCase().includes(pattern)
+        )
+      )
+    }, 500)
+  }
 
   const renderTeam = (team: Team): React.ReactNode => (
     <TableRow key={team.name}>
@@ -38,6 +46,13 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
     </TableRow>
   )
 
+  const onTextChange = ({
+    target: { value }
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(value)
+    filterTeams()(value)
+  }
+
   return (
     <Box fill align="start" justify="start" pad="large">
       <FormField validate={{ regexp: /^[a-z]/i }} required>
@@ -45,7 +60,7 @@ export const Favorites: React.FunctionComponent<IFavoritesProps> = ({
           id="text-input"
           placeholder="Name"
           value={filter}
-          onChange={({ target: { value } }) => setFilter(value)}
+          onChange={onTextChange}
         />
       </FormField>
       <Table>
